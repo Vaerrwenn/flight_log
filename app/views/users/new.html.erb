@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <h4>Register</h4>
+    </div>
+    <div class="row">
+        <%= simple_form_for @user do |f| %>
+            <%= f.input :email,
+                label: "Email",
+                error: "Must be filled!" %>
+            <%= f.input :password,
+                label: "Password",
+                error: "Must be filled with more than 5 characters!",
+                as: :password %>
+            <%= f.input :password_confirmation,
+                label: "Password Confirmation",
+                error: "Must match the password field!",
+                as: :password %>
+            <%= f.button :submit, "Register",
+                class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

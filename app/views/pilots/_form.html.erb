@@ -1,0 +1,20 @@
+<%= simple_form_for @pilot, defaults: { wrapper_html: { class: "col-12" } } do |f| %>
+    <%= f.input :name,
+        label: "Name",
+        error: "Name must be filled!" %>
+    <%= f.input :date_of_birth,
+        label: "Date of Birth",
+        error: "Date of Birth must be filed!",
+        start_year: Date.today.year - 70,
+        end_year: Date.today.year - 17 %>
+    <%= f.input :gender,
+        label: "Gender",
+        as: :radio_buttons,
+        collection: [['Male', 'Male'], ['Female', 'Female'], ['Others', 'Others']] %>
+    <div class="col-12">
+        <%= f.button :submit, "Create Data", class: "btn btn-primary" %>
+        <%= f.button :button, "Reset Form",
+            type: :reset, class: "btn btn-danger" %>
+    </div>
+    
+<% end %>

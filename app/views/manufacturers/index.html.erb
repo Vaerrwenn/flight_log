@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <%= link_to  "Add Data", new_manufacturer_path, class: "btn btn-primary"  %>
+        </div>
+    </div>
+    <div class="d-flex flex-column bd-highlight mt-3">
+        <% @manufacturers.each do |m| %>
+            <div class="flex-content p-2">
+                <div class="name">
+                    <b><%= m.name %></b>
+                </div>
+                <span class="edit">
+                    <%= link_to "Edit", edit_manufacturer_path(m)%> | 
+                </span>
+                <span class="delete">
+                    <%= link_to  "Delete", manufacturer_path(m),
+                        method: :delete,
+                        data: { confirm: "Are you sure you'd like to delete " + m.name + "'s data?"} %>
+                </span>
+            </div>
+        <% end %>
+    </div>
+</div>

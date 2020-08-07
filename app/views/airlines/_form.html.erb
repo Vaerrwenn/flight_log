@@ -1,0 +1,14 @@
+<%= simple_form_for @airline, defaults: { wrapper_html: { class: "col-12" } } do |f| %>
+    <%= f.input :name,
+        label: "Airline's Name:",
+        error: "Airline's Name must be filled with 3 or more letters!" %>
+    <%= f.input :icao_code,
+        label: "ICAO Code (Example: GIA, KLC, DLH)",
+        error: "ICAO Code must be filed with 3 letters!",
+        input_html: { maxlength: 3} %>
+    <div class="col-12">
+        <%= f.button :submit, "Create Data", class: "btn btn-primary" %>
+        <%= f.button :button, "Reset Form",
+            type: :reset, class: "btn btn-danger" %>
+    </div>
+<% end %>

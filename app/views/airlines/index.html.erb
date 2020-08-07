@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <%= link_to  "Add Data", new_airline_path, class: "btn btn-primary"  %>
+        </div>
+    </div>
+    <div class="d-flex flex-column bd-highlight mt-3">
+        <% @airlines.each do |a| %>
+            <div class="flex-content p-2">
+                <div class="name">
+                    <%= link_to airline_path(a) do %>
+                        <b><%= a.name %></b> (<%= a.icao_code %>)
+                    <% end %>
+                </div>
+                <span class="edit">
+                    <%= link_to "Edit", edit_airline_path(a)%> | 
+                </span>
+                <span class="delete">
+                    <%= link_to  "Delete", airline_path(a),
+                        method: :delete,
+                        data: { confirm: "Are you sure you'd like to delete " + a.name + "'s data?"} %>
+                </span>
+            </div>
+        <% end %>
+    </div>
+</div>

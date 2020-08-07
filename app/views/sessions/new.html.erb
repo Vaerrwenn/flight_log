@@ -1,0 +1,26 @@
+<div class="container">
+    <% flash.each do |type, msg| %>
+        <div class="alert alert-dismissible alert-<%= type %>">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <span><%= msg %></span>
+        </div>
+    <% end %>
+    <div class="row">
+        <h4>Log In</h4>
+    </div>
+    <div class="row">
+        <%= simple_form_for :login, { url: '/login', method: :post } do |f| %>
+            <%= f.input :email,
+                label: "Email",
+                error: "Must be filled!",
+                input_html: { name: "email" } %>
+            <%= f.input :password,
+                label: "Password",
+                error: "Must be filled!",
+                as: :password,
+                input_html: { name: "password" } %>
+            <%= f.button :submit, "Log In",
+                class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

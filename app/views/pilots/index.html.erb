@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <%= link_to  "Add Data", new_pilot_path, class: "btn btn-primary"  %>
+        </div>
+    </div>
+    <div class="d-flex flex-column bd-highlight mt-3">
+        <% @pilots.each do |p| %>
+            <div class="flex-content p-2">
+                <div class="name">
+                    <%= link_to pilot_path(p) do %>
+                        <b><%= p.name %></b>
+                    <% end %>
+                </div>
+                <span class="edit">
+                    <%= link_to "Edit", edit_pilot_path(p)%> | 
+                </span>
+                <span class="delete">
+                    <%= link_to  "Delete", pilot_path(p),
+                        method: :delete,
+                        data: { confirm: "Are you sure you'd like to delete " + p.name + "'s data?"} %>
+                </span>
+            </div>
+        <% end %>
+    </div>
+</div>

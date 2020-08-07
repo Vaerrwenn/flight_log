@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pilot: one
+  airline: one
+  aircraft: one
+  flight_num: MyString
+  start_time: 2020-07-13 11:31:48
+  end_time: 2020-07-13 11:31:48
+  origin: MyString
+  destination: MyString
+
+two:
+  pilot: two
+  airline: two
+  aircraft: two
+  flight_num: MyString
+  start_time: 2020-07-13 11:31:48
+  end_time: 2020-07-13 11:31:48
+  origin: MyString
+  destination: MyString

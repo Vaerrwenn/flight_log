@@ -1,0 +1,48 @@
+<%= simple_form_for @flight, defaults: { wrapper_html: { class: "col-12" } } do |f| %>
+    <%= f.association :pilot,
+        label: "Pilot",
+        error: "Pilot must be chosen!",
+        collection: Pilot.select("id, name").order(name: :asc),
+        label_method: :name,
+        value_method: :id,
+        prompt: "-Choose a Pilot-" %>
+    <%= f.association :airline,
+        label: "Airline",
+        error: "Airline must be chosen!",
+        collection: Airline.select("id, name").order(name: :asc),
+        label_method: :name,
+        value_method: :id,
+        prompt: "-Choose an Airline-" %>
+    <%= f.association :aircraft,
+        label: "Aircraft",
+        error: "Aircraft must be chosen!",
+        collection: Aircraft.select("id, registration").order(registration: :asc),
+        label_method: :registration,
+        value_method: :id,
+        prompt: "-Choose an Airline-" %>
+    <%= f.input :flight_num,
+        label: "Flight Number",
+        error: "Flight number must be filled!",
+        input_html: { maxlength: 8 } %>
+    <%= f.input :start_time,
+        label: "Flight's Start Time",
+        error: "Must be filled!",
+        start_year: Date.today.year - 50,
+        end_year: Date.today.year %>
+    <%= f.input :end_time,
+        label: "Flight's End Time (Time Zone is the same as the Start Time)",
+        error: "Must be filled!",
+        start_year: Date.today.year - 50,
+        end_year: Date.today.year %>
+    <%= f.input :origin,
+        label: "Origin Airport",
+        error: "Must be filled!" %>
+    <%= f.input :destination,
+        label: "Destination Airport",
+        error: "Must be filled!" %>    
+    <div class="col-12">
+        <%= f.button :submit, "Create Data", class: "btn btn-primary" %>
+        <%= f.button :button, "Reset Form",
+            type: :reset, class: "btn btn-danger" %>
+    </div>
+<% end %>

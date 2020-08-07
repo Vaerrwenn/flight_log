@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <%= link_to  "Add Data", new_flight_path, class: "btn btn-primary"  %>
+        </div>
+    </div>
+    <div class="d-flex flex-column bd-highlight mt-3">
+        <% @flights.each do |f| %>
+            <div class="flex-content p-2">
+                <div class="name">
+                    <%= link_to flight_path(f) do %>
+                        <b><%= f.flight_num %></b>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

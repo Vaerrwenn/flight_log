@@ -1,0 +1,10 @@
+<%= simple_form_for @manufacturer, defaults: { wrapper_html: { class: "col-12" } } do |f| %>
+    <%= f.input :name,
+        label: "Manufacturer's Name:",
+        error: "Manufacturer's Name must be filled with 3 or more characters!" %>
+    <div class="col-12">
+        <%= f.button :submit, "Create Data", class: "btn btn-primary" %>
+        <%= f.button :button, "Reset Form",
+            type: :reset, class: "btn btn-danger" %>
+    </div>
+<% end %>

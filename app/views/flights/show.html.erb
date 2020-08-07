@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h4><%= @flight.flight_num %></h4></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-12">
+            <%= link_to  "Edit Data", edit_flight_path(@flight), class: "btn btn-sm btn-secondary" %>
+            <%= link_to  "Delete Data", flight_path(@flight), class: "btn btn-sm btn-danger",
+                method: :delete,
+                data: { confirm: "Are you sure you'd like to delete " + @flight.flight_num + "'s data?"} %>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-2">Pilot</div>
+        <div class="col-10">: <%= @flight.pilot_name %></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-2">Airline</div>
+        <div class="col-10">: <%= @flight.airline_name %></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-2">Aircraft's Registration</div>
+        <div class="col-10">: <%= @flight.registration %></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-2">Start Time</div>
+        <div class="col-10">: <%= @flight.start_time.strftime("%d-%B-%Y %H.%M.%S %z") %></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-2">End Time</div>
+        <div class="col-10">: <%= @flight.end_time.strftime("%d-%B-%Y %H.%M.%S %z") %></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-2">Origin</div>
+        <div class="col-10">: <%= @flight.origin %></div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-2">Destination</div>
+        <div class="col-10">: <%= @flight.destination %></div>
+    </div>
+</div>
